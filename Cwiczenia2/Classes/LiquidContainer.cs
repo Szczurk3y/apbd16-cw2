@@ -17,7 +17,7 @@ public class LiquidContainer(float mass, float height, float weight, float depth
         }
 
         try {
-            base.fill(fillWith);
+            base.Fill(fillWith);
         }
         catch (OverfillException e) {
             Hazard(base.GetSerialNumber(), e.Message);

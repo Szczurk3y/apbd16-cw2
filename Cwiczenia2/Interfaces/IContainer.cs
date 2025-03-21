@@ -2,6 +2,6 @@
 
 public interface IContainer
 {
-    public void empty();
-    public void fill(double fillWith);
+    public void Empty();
+    public void Fill(double fillWith);
 }

@@ -12,25 +12,24 @@ public abstract class BaseContainer(
     ContainerType containerType
 ): IContainer
 {
-    private SerialNumber serialNumber = new(containerType);
+    private readonly SerialNumber _serialNumber = new(containerType);
     private double _mass = mass;
 
-    public void empty()
+    public virtual void Empty()
     {
-        throw new NotImplementedException();
+        _mass = weight;
     }
 
-    public virtual void fill(double fillWith)
+    public virtual void Fill(double fillWith)
     {
-        if (_mass > capacity) {
+        if (fillWith > capacity) {
             throw new OverfillException("Container overloaded!");
-        } else {
-            _mass = fillWith;
         }
+        _mass = fillWith + weight;
     }
 
-    public string GetSerialNumber()
+    protected string GetSerialNumber()
     {
-        return serialNumber.GetSerialNumber();
+        return _serialNumber.GetSerialNumber();
     }
 }
