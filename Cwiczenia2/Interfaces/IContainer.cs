@@ -3,5 +3,5 @@
 public interface IContainer
 {
     public void empty();
-    public void fill(float fillWith);
+    public void fill(double fillWith);
 }

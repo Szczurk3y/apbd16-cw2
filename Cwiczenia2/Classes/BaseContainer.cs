@@ -3,24 +3,24 @@ using Cwiczenia2.Util;
 
 namespace Cwiczenia2.Classes;
 
-abstract class BaseContainer(
+public abstract class BaseContainer(
     float mass,
-    float height,
-    float weight,
-    float depth,
-    float capacity,
+    double height,
+    double weight,
+    double depth,
+    double capacity,
     ContainerType containerType
 ): IContainer
 {
     private SerialNumber serialNumber = new(containerType);
-    private float _mass = mass;
+    private double _mass = mass;
 
     public void empty()
     {
         throw new NotImplementedException();
     }
 
-    public void fill(float fillWith)
+    public virtual void fill(double fillWith)
     {
         if (_mass > capacity) {
             throw new OverfillException("Container overloaded!");
