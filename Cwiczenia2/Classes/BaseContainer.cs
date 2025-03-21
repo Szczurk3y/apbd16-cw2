@@ -9,9 +9,12 @@ abstract class BaseContainer(
     float weight,
     float depth,
     float capacity,
-    SerialNumber serialNumber
+    ContainerType containerType
 ): IContainer
 {
+    private SerialNumber serialNumber = new(containerType);
+    private float _mass = mass;
+
     public void empty()
     {
         throw new NotImplementedException();
@@ -19,10 +22,10 @@ abstract class BaseContainer(
 
     public void fill(float fillWith)
     {
-        if (mass > capacity) {
+        if (_mass > capacity) {
             throw new OverfillException("Container overloaded!");
         } else {
-            mass = fillWith;
+            _mass = fillWith;
         }
     }
 
