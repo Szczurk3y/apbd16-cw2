@@ -1,12 +1,13 @@
-﻿using Cwiczenia2.Util;
+﻿using Cwiczenia2.Interfaces;
+using Cwiczenia2.Util;
 
 namespace Cwiczenia2.Classes;
 
 public class ContainerShip(double maxSpeed, double maxWeight, int containerLimit)
 {
-    private List<BaseContainer> _containerList = new();
+    private List<IContainer> _containerList = new();
 
-    public void PutContainers(List<BaseContainer> containers)
+    public void PutContainers(List<IContainer> containers)
     {
         if (_containerList.Count + containers.Count > containerLimit)
             throw new ContainerShipLimitException("Container ship limit exceeded");
@@ -29,7 +30,7 @@ public class ContainerShip(double maxSpeed, double maxWeight, int containerLimit
 
     public void Unload()
     {
-        _containerList = new List<BaseContainer>();
+        _containerList = new List<IContainer>();
         Console.WriteLine("Container unloaded");
     }
 
@@ -46,15 +47,8 @@ public class ContainerShip(double maxSpeed, double maxWeight, int containerLimit
         _containerList.RemoveAt(index);
     }
 
-    public void PrintContainerShipInfo()
+    public string GetContainerShipInfo()
     {
-        Console.WriteLine("Max speed: " + maxSpeed);
-        Console.WriteLine("Max weight: " + maxWeight);
-        Console.WriteLine("Container ship limit: " + containerLimit);
-        Console.WriteLine("Containers on board (" +  _containerList.Count + "): ");
-        foreach (var container in _containerList)    
-        {
-            Console.WriteLine(container.GetSerialNumber());
-        }
+        return "(speed=" + maxSpeed + ", maxContainerNum=" + containerLimit + ", maxWeight=" + maxWeight + ")";
     }
 }

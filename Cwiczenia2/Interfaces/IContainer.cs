@@ -4,4 +4,5 @@ public interface IContainer
 {
     public void Empty();
     public void Fill(double fillWith);
+    public string GetSerialNumber();
 }
