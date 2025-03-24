@@ -27,8 +27,18 @@ public abstract class BaseContainer(
         Mass = fillWith + weight;
     }
 
-    protected string GetSerialNumber()
+    public string GetSerialNumber()
     {
         return _serialNumber.GetSerialNumber();
+    }
+    
+    public void PrintContainerInfo()
+    {
+        Console.WriteLine("Max height: " + height);
+        Console.WriteLine("Weight: " + weight);
+        Console.WriteLine("Container depth: " + depth);
+        Console.WriteLine("Container capacity: " + capacity);
+        Console.WriteLine("Container type: " + containerType);
+        Console.WriteLine("Container serial number: " + GetSerialNumber());
     }
 }
