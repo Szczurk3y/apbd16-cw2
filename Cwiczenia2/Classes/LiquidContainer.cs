@@ -3,8 +3,8 @@ using Cwiczenia2.Util;
 
 namespace Cwiczenia2.Classes;
 
-public class LiquidContainer(float mass, float height, float weight, float depth, float capacity, ContainerType containerType) 
-    : BaseContainer(mass, height, weight, depth, capacity, containerType), IHazardNotifier
+public class LiquidContainer(float height, float weight, float depth, float capacity) 
+    : BaseContainer(height, weight, depth, capacity, ContainerType.Liquid), IHazardNotifier
 {
     public void Fill(double fillWith, bool isDanger)
     {
